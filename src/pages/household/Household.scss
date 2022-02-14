@@ -1,0 +1,122 @@
+  @import '../../GeneralParamters.scss';
+
+  @keyframes logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
+  #household{
+      display: flex;
+      flex-wrap: wrap;
+      aside{
+        width: 150px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+        div:first-child{
+            margin-top: 2rem;
+            img{
+                width: 70px;
+                transform-origin: 'center';
+                animation: logo-spin infinite 4s linear;
+            }
+        }
+        div:last-child{
+            margin-top: 1rem;
+        }
+
+      }
+      main{
+          width: calc(100% - 150px);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          position: relative;
+          .top-zone{
+              height: 250px; 
+            div:first-child{
+                img{
+                    display: block;
+                    margin: 0 auto;
+                    width: 150px;
+                }
+            }
+            h4{
+                text-align: center;
+            }
+            div:last-child{
+                span{
+                    margin-right: 0.5rem;
+                }
+            }
+          }
+          .divider{
+              width: 90%;
+          }
+          .bottom-zone{
+              width: 100%;
+              height: calc(100vh - 290px);  
+              .chart{
+                  height: calc(100vh - 290px) !important;
+              }
+              .no-selection{
+                  height: calc(100vh - 290px);
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  font-size: $title-font;
+              }
+        }
+    }
+}
+
+
+@media screen and (min-width: 576px) and (max-width: 767px){  /* sm  width:540px */
+    #household{
+        flex-direction: column;
+        aside{
+            width:100%;
+            height: 150px;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+            div:last-child{
+                color: #fff;
+                margin-left: 2rem;
+            }
+        }
+        main{
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 575px){  /* xs  width:100%*/
+    #household{
+        flex-direction: column;
+        aside{
+            width:100%;
+            height: 150px;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+            div:last-child{
+                color: #fff;
+                margin-left: 2rem;
+            }
+        }
+        main{
+            width: 100%;
+        }
+    }
+}
+

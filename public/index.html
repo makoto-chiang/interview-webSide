@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="INTERVIEW"
+      content="Web site to interview"
+    /> 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+
+    <title>Interview</title>
+ 
+
+    <!-- 偵測使用者瀏覽器是深色/淺色模式 => icon對應更換 -->
+    <script>
+      window.onload = function(){
+        const head = document.getElementsByTagName('head')[0];
+
+        const userInDarkMode = () =>{
+          let linkTag = document.createElement('link');
+          linkTag.setAttribute('rel', 'icon');
+          linkTag.setAttribute('href', '%PUBLIC_URL%/browser-logo-light.svg');
+
+          head.appendChild(linkTag);
+        }
+
+        const userInLightMode = () =>{
+          let linkTag = document.createElement('link');
+          linkTag.setAttribute('rel', 'icon');
+          linkTag.setAttribute('href', '%PUBLIC_URL%/browser-logo-dark.svg');
+
+          head.appendChild(linkTag);
+        }
+
+        // 首次載入現在的模式
+        if ( window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          userInDarkMode(); ; console.log('userInDarkMode')
+        } else {
+          userInLightMode(); console.log('userInLightMode')
+        };
+      
+
+      // 監聽模式的變更
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', (e) => {
+          const newColorScheme = e.matches ? 'dark' : 'light';
+          if (newColorScheme === 'dark') userInDarkMode();
+          else userInLightMode();
+        })
+    }
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id='root'></div>
+  </body>
+</html>
